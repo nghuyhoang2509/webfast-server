@@ -10,15 +10,15 @@ const schema = new mongoose.Schema(
       type: String,
       require: false,
     },
-    author: {
-      type: String,
-      require: true,
-    },
     sourcePageId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "SourcePage",
     },
     uid: {
+      type: String,
+      require: true,
+    },
+    key: {
       type: String,
       require: true,
     },

@@ -1,4 +1,5 @@
 import PageModel from "../models/Page.js";
+import uniqid from "uniqid";
 
 export const getListPage = async (req, res) => {
   try {
@@ -17,7 +18,8 @@ export const getListPage = async (req, res) => {
 
 export const createPage = async (req, res) => {
   try {
-    let pageInfo = req.body.pageInfo;
+    let key = uniqid.time();
+    let pageInfo = { ...req.body.pageInfo, key };
     pageInfo = await PageModel.create(pageInfo);
     pageInfo.save();
     return res.json({
